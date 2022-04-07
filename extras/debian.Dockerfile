@@ -20,7 +20,7 @@ RUN PREFIX=/app make
 RUN PREFIX=/app make install
 
 # Create small image for running
-FROM centos
+FROM centos:7
 
 ARG GLUSTER_VERSION=7
 
