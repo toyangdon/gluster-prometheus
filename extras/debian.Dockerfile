@@ -25,7 +25,8 @@ FROM centos
 ARG GLUSTER_VERSION=7
 
 # Install gluster cli for gluster-exporter
-RUN yum install centos-release-gluster7 -y && yum install glusterfs-server -y
+RUN yum install centos-release-gluster7 -y 
+RUN yum install glusterfs-server -y
 
 WORKDIR /app
 
