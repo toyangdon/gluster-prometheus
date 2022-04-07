@@ -37,7 +37,7 @@ bootstrap_platform() {
 
 install_dep() {
   DEPVER="v0.5.0"
-  DEPURL="https://github.com/golang/dep/releases/download/${DEPVER}/dep-linux-amd64"
+  DEPURL="https://github.com/golang/dep/releases/download/${DEPVER}/dep-linux-arm64"
   if type dep >/dev/null 2>&1; then
     local version
     version=$(dep version | awk '/^ version/{print $3}')
@@ -55,7 +55,7 @@ install_dep() {
 
 install_gometalinter() {
   LINTER_VER="3.0.0"
-  LINTER_TARBALL="gometalinter-${LINTER_VER}-linux-amd64.tar.gz"
+  LINTER_TARBALL="gometalinter-${LINTER_VER}-linux-arm64.tar.gz"
   LINTER_URL="https://github.com/alecthomas/gometalinter/releases/download/v${LINTER_VER}/${LINTER_TARBALL}"
 
   if type gometalinter >/dev/null 2>&1; then

@@ -7,10 +7,11 @@ WORKDIR /go/src/github.com/gluster/gluster-prometheus/
 
 RUN set -ex && \
         export DEBIAN_FRONTEND=noninteractive; \
-        apt-get -q update && apt-get install -y --no-install-recommends bash curl make git
+         apt-get install -y --no-install-recommends bash curl make git
 
 COPY . .
 
+ENV GOPROXY=https://proxy.golang.com.cn,direct
 RUN scripts/install-reqs.sh
 RUN PREFIX=/app make
 RUN PREFIX=/app make install
@@ -18,7 +19,7 @@ RUN PREFIX=/app make install
 # Create small image for running
 FROM debian:stretch-slim
 
-ARG GLUSTER_VERSION=6
+ARG GLUSTER_VERSION=7
 
 # Install gluster cli for gluster-exporter
 RUN set -ex && \
