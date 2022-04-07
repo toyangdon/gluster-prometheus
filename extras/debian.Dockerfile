@@ -12,7 +12,9 @@ RUN set -ex && \
 COPY . .
 
 #ENV GOPROXY=https://proxy.golang.com.cn,direct
-RUN go get github.com/golang/dep/cmd/dep
+#RUN go get github.com/golang/dep/cmd/dep
+RUN mkdir -p /go/bin
+RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 RUN scripts/install-reqs.sh
 RUN PREFIX=/app make
 RUN PREFIX=/app make install
